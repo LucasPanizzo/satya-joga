@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+html{
+    /* background-color:#acd4b4 ; */
+}
+a{
+    text-decoration: none;
+}
+.navbar {
+    background-color:#acd4b4 ;
+}
+.navbar-brand img{
+    height: 200px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.navbar-nav {
+    gap: 40px;
+  }
+.nav-item {
+    font-size: 2.5rem;
+    font-family: 'Dancing Script',sans-serif;
+    font-weight: 400;
+  }
+  .nav-item a{
+    padding: 0;
+  }
+
+  .navbar__img{
+    height: 100px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transition: all 0.5s;
+  }
+  .navbar__img:hover{
+    transform: rotate(-10deg);
+  }
