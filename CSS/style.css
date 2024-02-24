@@ -1,40 +1,78 @@
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
-html{
-    /* background-color:#acd4b4 ; */
+
+a {
+  text-decoration: none;
+  color: rgb(235, 235, 235);
 }
-a{
-    text-decoration: none;
+
+main {
+  background-color: #acd4b4;
 }
-.navbar {
-    background-color:#acd4b4 ;
+
+/*Reinicio ciertas declaraciones de bootstrap que no me gustan*/
+p {
+  margin: 0;
+  padding: 0;
 }
-.navbar-brand img{
-    height: 200px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.titulo {
+  font-weight: 600;
+}
+
+.row {
+  padding: 0;
+  margin: 0;
+}
+
+strong {
+  display: block;
+}
+
+.modal-content img {
+  max-height: 92vh;
+  object-fit: contain;
+  background-color: rgb(27, 27, 27);
+}
+
+/*-------------------------------------------HEADER STYLE-------------------------------------------------*/
+.nav-item {
+  font-size: 2.5rem;
+  font-family: "Dancing Script", sans-serif;
+  font-weight: 400;
+}
+.nav-item a {
+  padding: 0;
+}
+
+.navbar-brand img {
+  height: 200px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .navbar-nav {
-    gap: 40px;
-  }
-.nav-item {
-    font-size: 2.5rem;
-    font-family: 'Dancing Script',sans-serif;
-    font-weight: 400;
-  }
-  .nav-item a{
-    padding: 0;
-  }
+  gap: 40px;
+}
+.navbar__img {
+  height: 100px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  transition: all 0.5s;
+}
+.navbar__img:hover {
+  transform: rotate(-10deg);
+}
 
-  .navbar__img{
-    height: 100px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    transition: all 0.5s;
-  }
-  .navbar__img:hover{
-    transform: rotate(-10deg);
-  }
+.index-brand-presentation div img {
+  width: 200px;
+}
+
+/*# sourceMappingURL=style.css.map */

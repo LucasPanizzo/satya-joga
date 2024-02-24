@@ -1,0 +1,32 @@
+/*-------------------------------------------HEADER STYLE-------------------------------------------------*/
+.nav{
+    &-item{
+        font-size: 2.5rem;
+        font-family: 'Dancing Script',sans-serif;
+        font-weight: 400;
+        & a{
+            padding: 0;
+        }
+    }
+}
+.navbar{
+    &-brand{
+        & img{
+            height: 200px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    }
+    &-nav{
+        gap: 40px; 
+    }
+    &__img{
+        height: 100px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        transition: all 0.5s;
+        &:hover{
+            transform: rotate(-10deg);
+          }
+      }
+}

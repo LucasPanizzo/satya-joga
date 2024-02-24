@@ -1,0 +1,39 @@
+//Declaraciones generales de estilo
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: map-get($paleta, claro);
+}
+//Modifico el color del body en todas las páginas
+main{
+    background-color: map-get($paleta, ter);
+}
+/*Reinicio ciertas declaraciones de bootstrap que no me gustan*/
+p{
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    padding: 0;
+}
+.titulo{
+    font-weight: 600;
+}
+.row{
+    padding: 0;
+    margin: 0;
+}
+strong{
+    display: block;
+}
+.modal-content img{
+    max-height: 92vh;
+    object-fit: contain;
+    background-color: map-get($paleta, dark);
+}
+

@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "sass": "^1.71.1"
+  },
+  "scripts": {
+    "build-css": "sass ./SCSS/main.scss ./CSS/style.css",
+    "watch-css": "sass --watch ./SCSS/main.scss:./CSS/style.css"
+  }
+}
+
