@@ -71,8 +71,57 @@ strong {
   transform: rotate(-10deg);
 }
 
-.index-brand-presentation div img {
-  width: 200px;
+.index-brand {
+  padding: 20px;
+}
+.index-brand-presentation {
+  display: flex;
+  align-items: center;
+}
+.index-brand-presentation-image img {
+  max-width: 100%;
+  height: auto;
+}
+.index-brand-presentation-text {
+  padding: 20px;
+}
+.index-brand-presentation-text h2 {
+  color: rgb(27, 27, 27);
+  font-family: "Dancing Script", sans-serif;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+.index-brand-presentation-text p {
+  color: rgb(27, 27, 27);
+  font-size: 1.2em;
+}
+@media screen and (max-width: 1000px) {
+  .index-brand-presentation {
+    flex-direction: column;
+    text-align: center;
+  }
+  .index-brand-presentation-image {
+    margin-bottom: 20px;
+  }
+}
+
+.productos-nav-elemento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: grayscale(70%) blur(0.5px);
+  background-color: hwb(214 23% 27%/0.4);
+}
+.productos-nav-elemento:hover {
+  backdrop-filter: none;
+  background-color: hwb(214 23% 27%/0.5);
+}
+.productos-nav-layout {
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=style.css.map */

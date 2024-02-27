@@ -1,11 +1,96 @@
-.index{
-    &-brand{
-        &-presentation{
-            & div{
-                & img{
-                    width: 200px;
-                }
-            }
+// .index{
+//     &-brand{
+//         &-presentation{
+//             padding-bottom: 50px;
+//             border-bottom: 1px solid map-get($paleta,negro);
+//             display: flex;
+//             flex-direction: column-reverse;
+//             padding-top: 20px;
+//             @include desktop{
+//                 flex-direction: row;
+//             }
+//             &-image{
+//                 display: flex;
+//                 justify-content: center;
+//                 align-items: center;
+//                 & img{
+//                     width: 200px;
+//                 }
+//             }
+//             &-text{
+//                 padding-left: 100px;
+//                 & h2{
+//                     font-family: map-get($fuentes, main);
+//                     font-weight: 600;
+//                     font-size: 2rem;
+//                     margin-bottom: 7px;
+//                 }
+//                 & p{
+//                     font-family: map-get($fuentes, textos);
+//                     font-size: 1.2rem;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+.index-brand {
+    padding: 20px;
+  
+    &-presentation {
+        display: flex;
+        align-items: center;
+    
+        &-image {
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        }
+    
+        &-text {
+          padding: 20px;
+    
+          h2 {
+            color: map-get($paleta, dark);
+            font-family: map-get($fuentes, main), sans-serif;
+            font-size: 2em;
+            margin-bottom: 10px;
+          }
+    
+          p {
+            color: map-get($paleta, dark);
+            font-size: 1.2em;
+          }
+        }
+    
+        @include tablet {
+          flex-direction: column;
+          text-align: center;
+    
+          &-image {
+            margin-bottom: 20px;
+          }
+        }
+      }
+  }
+  .productos-nav{
+    &-elemento{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: grayscale(70%) blur(0.5px);
+        background-color: hwb(214 23% 27% / 0.4);
+        &:hover{
+            backdrop-filter: none;
+            background-color: hwb(214 23% 27% / 0.5);
         }
     }
-}
+    &-layout{
+        display: flex;
+        justify-content: center;
+    }
+  }
