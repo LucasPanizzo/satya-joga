@@ -8,10 +8,6 @@ a{
     text-decoration: none;
     color: map-get($paleta, claro);
 }
-//Modifico el color del body en todas las páginas
-main{
-    background-color: map-get($paleta, ter);
-}
 /*Reinicio ciertas declaraciones de bootstrap que no me gustan*/
 p{
     margin: 0;
@@ -36,4 +32,6 @@ strong{
     object-fit: contain;
     background-color: map-get($paleta, dark);
 }
-
+.tinyWave{
+    width: 100%;
+}
