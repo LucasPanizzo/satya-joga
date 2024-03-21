@@ -15,7 +15,7 @@ export async function getProductByIDService(id){
     return await persistence.getProductByID(id)
 }
 
-export async function delectProductService(id){
+export async function deleteProductService(id){
     return await persistence.deleteProduct(id)
 }
 
