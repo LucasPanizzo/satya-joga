@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "build-css": "sass ./SCSS/main.scss ./CSS/style.css",
-    "watch-css": "sass --watch ./SCSS/main.scss:./CSS/style.css"
+    "watch-css": "sass --watch ./SCSS/main.scss:./CSS/style.css",
+    "start": "node ./src/app.js"
   },
   "keywords": [],
   "author": "",

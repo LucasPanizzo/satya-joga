@@ -1,4 +1,4 @@
-import { getProductsService,getProductByIDService,addProductService,deleteProductService,updateProductService } from "../services/products.services";
+import { getProductsService,getProductByIDService,addProductService,deleteProductService,updateProductService } from "../services/products.services.js";
 
 export const getProductsController = async (req, res) => {
     try {
@@ -9,7 +9,7 @@ export const getProductsController = async (req, res) => {
     }
 }
 
-export const getProductByIDService = async (req,res) => {
+export const getProductByIDController = async (req,res) => {
     try {
         const { idProduct } = req.params
         const searchedProduct = await getProductByIDService(idProduct)
