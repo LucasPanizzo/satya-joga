@@ -104,4 +104,90 @@ export default class cartManager {
             console.log('No se encontró al carrito especificado',error)
         }
     }
+    async emptyCart(idCart) {
+        try {
+            const cart = await this.getCartByID(idCart)
+            cart.products = []
+            await cart.save()
+            return cart
+        } catch (error) {
+            console.log('No se encontró al carrito especificado',error)
+        }
+    }
+    async updateProductsInCart(products,idCart) {
+        try {
+            if (products.length != 0){
+                const cart = await this.getCartByID(idCart)
+                products.forEach(element => {
+                    cart.products.push(element)
+                })
+                await cart.save()
+                return cart
+            } else {
+                console.log('No se encontraron productos en el carrito');
+            }
+        } catch (error) {
+            console.log('No se encontró al carrito especificado',error)
+        }
+    }
+    async #codeGenerator() {
+        try {
+            const ticketList = await ticketsModels.find({})
+            let code = 1
+            if (ticketList.length !== 0) {
+                code = parseInt(ticketList[ticketList.length - 1].code) + 1
+            }
+            return code
+        } catch (error) {
+            console.log('Error en la generación del código',error)
+        }
+    }
+    async #ticketGenerator(prices,email) {
+        try {
+            const totalPrice = prices.reduce((acc,el) => acc + el, 0)
+            const code = await this.#codeGenerator()
+            const ticket = {
+                code: code,
+                purcharse_datetime: new Date(),
+                amount: totalPrice,
+                purcharser: email
+            }
+            const newTicket = await ticketsModels.create(ticket)
+            return newTicket
+        } catch (error) {
+            console.log('Error en la generación del código', error);
+        }
+    }
+    async purchaseProductsInCart(idCart, email) {
+        try {
+            const cart = await this.getCartByID(idCart)
+            const productsInCart = cart.products
+            let prices = []
+            let productsNoStock = []
+            let productsStocked = []
+            for(let i = 0; i < productsInCart.length; i++) {
+                const product = await getProductByIDService(
+                    productsInCart[i].productId.toHexString()
+                )
+                if(product.stock >= productsInCart[i].quantity) {
+                    let subTotal = product.price * productsInCart[i].quantity
+                    prices.push(subTotal)
+                    const newStock = product.stock - productsInCart[i].quantity
+                    productsStocked.push(productsInCart[i])
+                    await this.deleteProduct(idCart, productsInCart[i].productId.toHexString())
+                    await updateProductService(productsInCart[i].productId.toHexString(), {
+                        stock: newStock,
+                    })
+                } else {
+                    productsNoStock.push(productsInCart[i].productId.toHexString())
+                    }
+            }
+            if(productsStocked != 0){
+                const ticket = await this.#ticketGenerator(prices,email)
+                return{productsNoStock,productsStocked,ticket}
+            }
+        } catch (error) {
+            console.log('No se encontró al carrito especificado',error)
+        }
+    }
 }
