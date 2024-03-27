@@ -8,6 +8,7 @@ export async function getProductsService(){
 }
 
 export async function addProductService(obj){
+    console.log('service');
     return await persistence.addProduct(obj)
 }
 

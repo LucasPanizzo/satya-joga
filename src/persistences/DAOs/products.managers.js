@@ -11,16 +11,19 @@ export default class ProductManager {
     }
     async addProduct(obj) {
         try {
+            console.log('llega asi',obj);
             const productsList = await this.getProducts()
             if (productsList.find((el) => el.code === obj.code)) {
                 console.log('El codigo de producto ya está siendo utilizado');
             } else {
-                if (obj.title || obj.description || obj.code || obj.price || obj.stock || obj.status || obj.category || obj.thumbnails) {
+                if (obj.title && obj.description && obj.code && obj.price && obj.stock && obj.status && obj.category && obj.thumbnails) {
+                    console.log('entra IF0'+obj);
                     const newProduct = new productsModels(obj)
                     const productSaved = newProduct.save()
                     return productSaved
                 } else {
                     console.log('No se puede crear el producto porque faltaron campos de relleno');
+                    return undefined
                 }
             }
         } catch(error) {

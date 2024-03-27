@@ -23,7 +23,7 @@ app.use(
         resave: false,
         saveUninitialized: true,
         store: MongoStore.create({
-            mongoUrl: 'mongodb+srv://lucaspanizzo99:Palermitano99@e-commerce.jglhxrw.mongodb.net/?retryWrites=true&w=majority&appName=E-Commerce'
+            mongoUrl: 'mongodb+srv://lucaspanizzo99:Palermitano99@ecommerce.ywluyky.mongodb.net/?retryWrites=true&w=majority&appName=eCommerce'
         }),
     })
 )
