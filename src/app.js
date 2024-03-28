@@ -2,6 +2,7 @@
 import express from "express";
 import './persistences/MongoDB/dbConfig.js';
 import products from './routers/products.router.js';
+import carts from './routers/carts.router.js'
 import { __dirname } from "./utilites.js";
 import session from "express-session";
 import MongoStore from "connect-mongo";
@@ -33,3 +34,4 @@ app.use(express.text())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(__dirname + '/public'))
 app.use('/api/products', products)
+app.use('/api/carts', carts)
