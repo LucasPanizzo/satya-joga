@@ -1,4 +1,3 @@
-import exp from "constants";
 import { addCartService,getCartsService,getCartByIDService,addToCartService,deleteProductService,emptyCartService,updateProductsInCartService,modifyProductQuantityService,purchaseProductsInCartService } from "../services/carts.services.js";
 
 export const addCartController = async (req,res) => {
@@ -23,7 +22,7 @@ export const getCartByIDController = async (req,res) => {
     try {
         const cartID = req.params.cid
         const searchedCart = await getCartByIDService(cartID)
-        const cartProducts = searchedCart[0].products 
+        const cartProducts = searchedCart.products
         res.json({ message: 'Carrito encontrado', cartProducts })
     } catch (error) {
         console.log('No se encontró el carrito especificado',error);  
