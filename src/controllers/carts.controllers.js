@@ -95,3 +95,17 @@ export const modifyProductQuantityController = async (req,res) => {
         console.log('No se pudo modificar el carrito.',error);
     }
 }
+
+export const purchaseProductsInCartController = async (req,res) => {
+    try {
+        const email = req.body
+        const cartId = req.params.cid
+        const response = await purchaseProductsInCartService(cartId,email)
+        console.log(response);
+        const responseCopy = Object.assign({}, response);
+        responseCopy.ticket = responseCopy.ticket.toObject();
+        console.log(responseCopy);
+    } catch (error) {
+        
+    }
+}

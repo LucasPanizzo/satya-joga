@@ -160,6 +160,7 @@ export default class cartManager {
     }
     async purchaseProductsInCart(idCart, email) {
         try {
+            console.log('llega',email,idCart);
             const cart = await this.getCartByID(idCart)
             const productsInCart = cart.products
             let prices = []
@@ -169,6 +170,7 @@ export default class cartManager {
                 const product = await getProductByIDService(
                     productsInCart[i].productId.toHexString()
                 )
+                console.log('entra ciclo for', product);
                 if(product.stock >= productsInCart[i].quantity) {
                     let subTotal = product.price * productsInCart[i].quantity
                     prices.push(subTotal)
@@ -178,11 +180,14 @@ export default class cartManager {
                     await updateProductService(productsInCart[i].productId.toHexString(), {
                         stock: newStock,
                     })
+                    console.log('entra if ',productsStocked);
                 } else {
+                    console.log('entra else');
                     productsNoStock.push(productsInCart[i].productId.toHexString())
                     }
             }
             if(productsStocked != 0){
+                console.log('llega instancia ticket generator',productsStocked);
                 const ticket = await this.#ticketGenerator(prices,email)
                 return{productsNoStock,productsStocked,ticket}
             }

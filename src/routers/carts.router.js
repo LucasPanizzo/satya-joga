@@ -1,4 +1,4 @@
-import { addCartController,getCartsController,getCartByIDController,addToCartController,deleteProductController,emptyCartController,updateProductsInCartController,modifyProductQuantityController } from "../controllers/carts.controllers.js";
+import { addCartController,getCartsController,getCartByIDController,addToCartController,deleteProductController,emptyCartController,updateProductsInCartController,modifyProductQuantityController,purchaseProductsInCartController } from "../controllers/carts.controllers.js";
 import { Router } from "express";
 
 const router = Router()
@@ -18,5 +18,7 @@ router.delete('/:cid',emptyCartController)
 router.put('/:cid',updateProductsInCartController)
 
 router.put('/:cid/product/:pid',modifyProductQuantityController)
+
+router.post('/purchase/:cid',purchaseProductsInCartController)
 
 export default router
