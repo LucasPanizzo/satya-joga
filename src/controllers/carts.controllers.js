@@ -28,17 +28,29 @@ export const getCartByIDController = async (req,res) => {
         console.log('No se encontró el carrito especificado',error);  
     }
 }
-
-export const addToCartController = async (req,res) => {
+export const addToCartController = async (req, res) => {
     try {
-        const cartID = req.params.cid
-        const productID = req.params.pid
-        await addToCartService(cartID,productID)
-        res.send('Producto agregado con éxito.')
+        let cart = req.session.cart;
+        if (!cart) {
+            console.log('Creando un nuevo carrito...');
+            const newCart = await addCartService(); // Asegúrate de que esta función devuelva un carrito válido
+            console.log('Nuevo carrito:', newCart);
+            req.session.cart = newCart;
+            cart = newCart; // Actualiza la referencia al carrito
+        }
+        
+        const cartID = cart._id;
+        const productID = req.params.pid;
+        await addToCartService(cartID, productID); // Asegúrate de que esta función modifique el carrito correctamente
+
+        console.log('Carrito después de agregar el producto:', cart);
+        res.send('Producto agregado con éxito.');
     } catch (error) {
-        console.log('No se pudo agregar el producto al carrito.',error);
+        console.log('No se pudo agregar el producto al carrito.', error);
+        res.status(500).send('Error al agregar el producto al carrito.');
     }
 }
+
 
 export const deleteProductController = async (req,res) => {
     try {
